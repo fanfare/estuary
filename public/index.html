@@ -1,0 +1,93 @@
+<!-- mini-bog client -->
+
+<!-- needs jquery and jquery-ui -->
+
+<!doctype html>
+<html>
+<head>
+<style>
+.buttons {
+  position:absolute;
+  top:700px;
+  left:10px;
+}
+#main {
+  border:2px solid red;
+  width:100vw;
+  height:100vh;
+}
+</style>
+
+<script                                                              
+  src="https://code.jquery.com/jquery-2.2.4.min.js"                  
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="    
+  crossorigin="anonymous"></script>                                  
+<script                                                              
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"           
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="    
+  crossorigin="anonymous"></script>      
+
+<script>
+
+let myname = "fruitfare"
+const bog = {}
+
+const send = (json) => {
+  console.log(json)
+}
+
+function checkimgurl(url) {
+  return (url.match(/https?:\/\/.+\.(jpeg|jpg|gif|png|bmp|ico|JPEG|JPG|GIF|PNG|BMP|ICO)$/) != null)
+}
+
+</script>
+<link href="css/estuary.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="main">
+  <a download="estuary.jpg" href="" id="estuarydownload" style="display:none">download</a>
+  <div class="buttons">
+    <input type="text" id="input" placeholder="text input">
+    <button id="estuarybutton"></button>
+  </div>
+  </div>
+  <script src="js/estuary.js"></script>
+  <script>
+    // const ws = new WebSocket("ws://localhost:7893")
+    // try bogchat IP for testing
+    const ws = new WebSocket("ws://104.236.50.22:7893")
+            
+    ws.onopen = () => {
+      console.log("websocket opened, request estuary status")
+      // 
+      ws.send(JSON.stringify({
+        type:"estuarystatusrequest"
+      }))
+      // send request to the server to ask what the status of estuary is
+    }
+    
+    ws.onmessage = (e) => { 
+      try {
+        let json = JSON.parse(e.data)
+        ;(({
+          heartbeat: () => {
+            console.log("global heartbeat")
+          },
+          estuary: () => {
+            console.log("pass this data to the estuary module")
+            bog.estuary(json.data)
+          }
+        })[json.type] || (() => {  } ))();
+      }
+      catch(e) {
+        console.error(e)
+      }
+    }
+
+    ws.onclose = () => { 
+      
+    }
+  
+  </script>
+</body>
+</html>

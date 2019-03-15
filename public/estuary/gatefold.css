@@ -1,0 +1,29 @@
+* {
+  box-sizing:border-box
+}
+body, html {
+  padding:0;
+  margin:0;
+  width:100%;
+  overflow:hidden!important;
+  background:white;
+}
+#iframe, iframe {
+  width:1028px;
+  height:640px;
+  position:absolute;
+  top:0;
+  left:0
+}
+#iframe {
+  padding:10px;
+}
+#cursor {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAQCAYAAAAvf+5AAAAAY0lEQVQoU43S2w7AIAgDUPr/H81S4whiYfPFRE+8FODubmYGAJy7AUIa+gkH5EkTPuCEL9hhCRVuYcUjzPgTBn5zrEHvOsSyynFt1kyvyuQbMl4w17qFqgkUlh3zG+7PHE96AJdkeAmJG5AKAAAAAElFTkSuQmCC');
+  position:absolute;
+  top:0px;
+  left:-9px;
+  z-index:999;
+  width:10px;
+  height:16px;
+}

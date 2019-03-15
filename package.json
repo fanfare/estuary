@@ -1,0 +1,27 @@
+{
+  "name": "describe2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "atob": "^2.1.2",
+    "axios": "^0.18.0",
+    "base32": "0.0.6",
+    "btoa": "^1.2.1",
+    "cors-anywhere": "^0.4.1",
+    "crypto-js": "^3.1.9-1",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "http-proxy": "^1.17.0",
+    "request": "^2.88.0",
+    "simples": "^0.8.8",
+    "websocket": "^1.0.28"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
