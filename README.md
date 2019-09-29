@@ -1,1 +1,1 @@
-multi-user web browsing in bogchat
+installation left up to reader as an excersize"
