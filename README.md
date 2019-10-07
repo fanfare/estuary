@@ -1,1 +1,1 @@
-installation left up to reader as an excersize"
+backup of estuary, for bogchat
